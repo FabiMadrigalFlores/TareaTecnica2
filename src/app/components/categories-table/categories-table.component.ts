@@ -11,7 +11,16 @@ import { ICategory } from '../../interfaces';
 })
 export class CategoriesTableComponent {
   @Input() categories: ICategory[] = [];
-  @Input() areActionsAvailable: boolean = false;
-  @Output() callEditMethod: EventEmitter<ICategory> = new EventEmitter<ICategory>();
-  @Output() callDeleteMethod: EventEmitter<ICategory> = new EventEmitter<ICategory>();
+  @Input() areActionsAvailable = false;
+
+  @Output() editCategory = new EventEmitter<ICategory>();
+  @Output() deleteCategory = new EventEmitter<ICategory>();
+
+  onEdit(category: ICategory) {
+    this.editCategory.emit(category);
+  }
+
+  onDelete(category: ICategory) {
+    this.deleteCategory.emit(category);
+  }
 }

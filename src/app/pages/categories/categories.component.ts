@@ -32,7 +32,7 @@ export class CategoriesComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
     this.checkUserRole();
-    this.categoryService.loadAll();
+    this.categoryService.getAll();
   }
 
   initForm(): void {
